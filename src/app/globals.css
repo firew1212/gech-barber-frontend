@@ -1,26 +1,696 @@
 @import "tailwindcss";
 
+/* =========================================================
+   FIRE BARBER — CHARCOAL + GOLD THEME
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Main palette */
+  --fire-charcoal: #18181b;
+  --fire-charcoal-dark: #111113;
+  --fire-charcoal-deep: #0d0d0f;
+
+  /* Cards */
+  --fire-card: #202023;
+  --fire-card-hover: #27272a;
+
+  /* Borders */
+  --fire-border: #3a3a3f;
+  --fire-border-light: #4a4a50;
+
+  /* Gold */
+  --fire-gold: #d4af37;
+  --fire-gold-hover: #f0c94d;
+  --fire-gold-dark: #a88924;
+  --fire-gold-soft: rgba(212, 175, 55, 0.12);
+  --fire-gold-glow: rgba(212, 175, 55, 0.22);
+
+  /* Text */
+  --fire-text: #fafaf9;
+  --fire-text-secondary: #d4d4d8;
+  --fire-text-muted: #a1a1aa;
+  --fire-text-dark: #71717a;
+
+  /* Status */
+  --fire-success: #34d399;
+  --fire-warning: #fbbf24;
+  --fire-danger: #f87171;
+  --fire-info: #60a5fa;
+
+  /* Radius */
+  --fire-radius-sm: 0.625rem;
+  --fire-radius-md: 0.875rem;
+  --fire-radius-lg: 1.25rem;
+  --fire-radius-xl: 1.5rem;
+  --fire-radius-2xl: 2rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* =========================================================
+   BASE
+   ========================================================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--fire-charcoal-dark);
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(212, 175, 55, 0.07),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      var(--fire-charcoal-dark) 0%,
+      var(--fire-charcoal) 45%,
+      var(--fire-charcoal-dark) 100%
+    );
+
+  color: var(--fire-text);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: var(--fire-gold);
+  color: #111113;
+}
+
+::-moz-selection {
+  background: var(--fire-gold);
+  color: #111113;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--fire-charcoal-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 999px;
+  border: 2px solid var(--fire-charcoal-deep);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fire-gold);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 var(--fire-charcoal-deep);
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   FIRE BARBER UTILITY CLASSES
+   ========================================================= */
+
+.fire-page {
+  min-height: 100vh;
+  background: var(--fire-charcoal);
+  color: var(--fire-text);
+}
+
+.fire-section-dark {
+  background: var(--fire-charcoal-dark);
+}
+
+.fire-card {
+  background: var(--fire-card);
+  border: 1px solid var(--fire-border);
+  border-radius: var(--fire-radius-xl);
+  transition:
+    border-color 200ms ease,
+    background 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.fire-card:hover {
+  background: var(--fire-card-hover);
+  border-color: var(--fire-gold-dark);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.fire-gold {
+  color: var(--fire-gold);
+}
+
+.fire-gold-bg {
+  background: var(--fire-gold);
+  color: #111113;
+}
+
+.fire-gold-bg:hover {
+  background: var(--fire-gold-hover);
+}
+
+.fire-border {
+  border-color: var(--fire-border);
+}
+
+.fire-muted {
+  color: var(--fire-text-muted);
+}
+
+/* =========================================================
+   GOLD BUTTON
+   ========================================================= */
+
+.fire-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  min-height: 44px;
+  padding: 0.75rem 1.25rem;
+
+  border: 1px solid var(--fire-gold);
+  border-radius: var(--fire-radius-md);
+
+  background: var(--fire-gold);
+  color: #111113;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.fire-button:hover {
+  background: var(--fire-gold-hover);
+  transform: translateY(-1px);
+  box-shadow:
+    0 10px 30px var(--fire-gold-glow);
+}
+
+.fire-button:active {
+  transform: translateY(0);
+}
+
+.fire-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.fire-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+  padding: 0.75rem 1.25rem;
+
+  border: 1px solid var(--fire-border);
+  border-radius: var(--fire-radius-md);
+
+  background: var(--fire-card);
+  color: var(--fire-text);
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.fire-button-secondary:hover {
+  border-color: var(--fire-gold);
+  background: var(--fire-card-hover);
+  color: var(--fire-gold);
+}
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.fire-input {
+  width: 100%;
+
+  border: 1px solid var(--fire-border);
+  border-radius: var(--fire-radius-md);
+
+  background: var(--fire-charcoal-deep);
+  color: var(--fire-text);
+
+  padding: 0.875rem 1rem;
+
+  outline: none;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.fire-input::placeholder {
+  color: var(--fire-text-dark);
+}
+
+.fire-input:hover {
+  border-color: var(--fire-border-light);
+}
+
+.fire-input:focus {
+  border-color: var(--fire-gold);
+
+  box-shadow:
+    0 0 0 3px var(--fire-gold-soft);
+}
+
+.fire-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+.fire-label {
+  display: block;
+  margin-bottom: 0.5rem;
+
+  color: var(--fire-text-secondary);
+
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* =========================================================
+   GOLD GLOW
+   ========================================================= */
+
+.fire-glow {
+  box-shadow:
+    0 0 40px rgba(212, 175, 55, 0.08);
+}
+
+.fire-glow-strong {
+  box-shadow:
+    0 0 60px rgba(212, 175, 55, 0.15);
+}
+
+/* =========================================================
+   GOLD GRADIENT
+   ========================================================= */
+
+.fire-gold-gradient {
+  background:
+    linear-gradient(
+      135deg,
+      #a88924 0%,
+      #d4af37 45%,
+      #f0c94d 100%
+    );
+}
+
+/* =========================================================
+   GOLD TEXT GRADIENT
+   ========================================================= */
+
+.fire-gold-text {
+  background:
+    linear-gradient(
+      135deg,
+      #a88924,
+      #d4af37,
+      #f0c94d
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.fire-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  border-radius: 999px;
+
+  padding: 0.35rem 0.7rem;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.fire-status-available {
+  background: rgba(52, 211, 153, 0.1);
+  color: var(--fire-success);
+}
+
+.fire-status-busy {
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--fire-warning);
+}
+
+.fire-status-unavailable {
+  background: rgba(248, 113, 113, 0.1);
+  color: var(--fire-danger);
+}
+
+.fire-status-vacation {
+  background: rgba(96, 165, 250, 0.1);
+  color: var(--fire-info);
+}
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.fire-divider {
+  height: 1px;
+  width: 100%;
+  background: var(--fire-border);
+}
+
+/* =========================================================
+   GOLD LINE
+   ========================================================= */
+
+.fire-gold-line {
+  height: 2px;
+  width: 60px;
+  border-radius: 999px;
+  background: var(--fire-gold);
+}
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--fire-gold);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   BUTTON RESET
+   ========================================================= */
+
+button {
+  font-family: inherit;
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.fire-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fire-table th {
+  padding: 0.875rem 1rem;
+
+  background: var(--fire-charcoal-dark);
+
+  color: var(--fire-text-muted);
+
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.fire-table td {
+  padding: 1rem;
+
+  border-top: 1px solid var(--fire-border);
+
+  color: var(--fire-text-secondary);
+}
+
+.fire-table tr {
+  transition: background 150ms ease;
+}
+
+.fire-table tbody tr:hover {
+  background: var(--fire-card-hover);
+}
+
+/* =========================================================
+   DASHBOARD SIDEBAR
+   ========================================================= */
+
+.fire-sidebar {
+  background:
+    linear-gradient(
+      180deg,
+      var(--fire-charcoal-dark),
+      #151517
+    );
+
+  border-right: 1px solid var(--fire-border);
+}
+
+.fire-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  border-radius: var(--fire-radius-md);
+
+  padding: 0.75rem 1rem;
+
+  color: var(--fire-text-muted);
+
+  transition:
+    color 180ms ease,
+    background 180ms ease;
+}
+
+.fire-sidebar-link:hover {
+  background: var(--fire-gold-soft);
+  color: var(--fire-gold);
+}
+
+.fire-sidebar-link.active {
+  background: var(--fire-gold-soft);
+  color: var(--fire-gold);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.fire-nav {
+  background: rgba(17, 17, 19, 0.85);
+  border-bottom: 1px solid var(--fire-border);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.fire-nav-link {
+  color: var(--fire-text-muted);
+  transition: color 180ms ease;
+}
+
+.fire-nav-link:hover {
+  color: var(--fire-gold);
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.fire-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: var(--fire-radius-md);
+
+  background: var(--fire-gold);
+  color: #111113;
+
+  font-size: 1.25rem;
+  font-weight: 900;
+
+  box-shadow:
+    0 8px 25px rgba(212, 175, 55, 0.15);
+}
+
+/* =========================================================
+   HERO BACKGROUND
+   ========================================================= */
+
+.fire-hero {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(212, 175, 55, 0.12),
+      transparent 38%
+    ),
+    var(--fire-charcoal-dark);
+}
+
+.fire-hero::before {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  top: -250px;
+
+  width: 600px;
+  height: 600px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(212, 175, 55, 0.04);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   SERVICE CARDS
+   ========================================================= */
+
+.fire-service-card {
+  background: var(--fire-card);
+  border: 1px solid var(--fire-border);
+  border-radius: var(--fire-radius-xl);
+
+  padding: 1.5rem;
+
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    background 250ms ease;
+}
+
+.fire-service-card:hover {
+  transform: translateY(-5px);
+
+  background: var(--fire-card-hover);
+
+  border-color: var(--fire-gold);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(212, 175, 55, 0.06);
+}
+
+.fire-service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: var(--fire-radius-md);
+
+  background: var(--fire-gold-soft);
+  color: var(--fire-gold);
+
+  transition:
+    background 200ms ease,
+    color 200ms ease;
+}
+
+.fire-service-card:hover .fire-service-icon {
+  background: var(--fire-gold);
+  color: #111113;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .fire-card {
+    border-radius: var(--fire-radius-lg);
+  }
+
+  .fire-service-card {
+    border-radius: var(--fire-radius-lg);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
