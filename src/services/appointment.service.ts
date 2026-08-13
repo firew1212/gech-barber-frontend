@@ -7,48 +7,35 @@ export interface CreateAppointmentPayload {
   notes?: string;
 }
 
+export type AppointmentStatus =
+  | 'CONFIRMED'
+  | 'IN_QUEUE'
+  | 'IN_SERVICE'
+  | 'COMPLETED'
+  | 'CANCELLED'
+  | 'NO_SHOW';
+
 export interface UpdateAppointmentStatusPayload {
-  status:
-    | 'PENDING'
-    | 'IN_QUEUE'
-    | 'IN_SERVICE'
-    | 'COMPLETED'
-    | 'CANCELLED'
-    | 'NO_SHOW';
+  status: AppointmentStatus;
 }
 
 export const appointmentService = {
-  /**
-   * Customer creates a new appointment.
-   */
   create(payload: CreateAppointmentPayload) {
     return api.post('/appointments', payload);
   },
 
-  /**
-   * Customer gets their own appointments.
-   */
   getMyAppointments() {
     return api.get('/appointments/my');
   },
 
-  /**
-   * Admin / Barber gets all appointments.
-   */
   getAll() {
     return api.get('/appointments');
   },
 
-  /**
-   * Admin / Barber gets one appointment.
-   */
   getOne(id: string) {
     return api.get(`/appointments/${id}`);
   },
 
-  /**
-   * Admin / Barber updates appointment status.
-   */
   updateStatus(
     id: string,
     payload: UpdateAppointmentStatusPayload,
@@ -59,9 +46,6 @@ export const appointmentService = {
     );
   },
 
-  /**
-   * Customer cancels their appointment.
-   */
   cancel(id: string) {
     return api.patch(
       `/appointments/${id}/cancel`,

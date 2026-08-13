@@ -15,15 +15,17 @@ export default function DashboardShell({
 }: DashboardShellProps) {
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
+
       {/* Desktop Sidebar */}
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 border-r border-zinc-800 bg-zinc-950 lg:block">
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 border-r border-red-950/70 bg-gradient-to-b from-red-950 via-zinc-950 to-zinc-950 lg:block">
         <Sidebar />
       </aside>
 
-      {/* Main Area */}
+      {/* Main */}
       <div className="lg:pl-64">
+
         {/* Topbar */}
-        <header className="sticky top-0 z-30 border-b border-zinc-800 bg-zinc-950/90 backdrop-blur-xl">
+        <header className="sticky top-0 z-30 border-b border-red-900/50 bg-zinc-950/90 backdrop-blur-xl">
           <Topbar />
         </header>
 
@@ -33,12 +35,14 @@ export default function DashboardShell({
             {children}
           </div>
         </main>
+
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile */}
       <div className="lg:hidden">
         <MobileNavigation />
       </div>
+
     </div>
   );
 }

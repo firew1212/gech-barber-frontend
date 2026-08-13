@@ -7,93 +7,102 @@ const links = [
   {
     href: '/dashboard',
     label: 'Dashboard',
+    icon: '⌂',
+  },
+  {
+    href: '/book',
+    label: 'Book Appointment',
+    icon: '✂',
   },
   {
     href: '/appointments',
-    label: 'Appointments',
+    label: 'My Appointments',
+    icon: '▣',
   },
   {
     href: '/queue',
-    label: 'Queue',
+    label: 'Queue Status',
+    icon: '#',
   },
   {
-    href: '/services',
-    label: 'Services',
-  },
-  {
-    href: '/barbers',
-    label: 'Barbers',
-  },
-  {
-    href: '/customers',
-    label: 'Customers',
-  },
-  {
-    href: '/payments',
-    label: 'Payments',
+    href: '/reviews',
+    label: 'Reviews',
+    icon: '★',
   },
   {
     href: '/profile',
     label: 'Profile',
+    icon: '●',
   },
-  {
-  label: 'Reviews',
-  href: '/reviews',
-}
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden w-64 shrink-0 border-r border-zinc-800 bg-zinc-950 lg:block">
-      <div className="sticky top-0 flex h-screen flex-col p-5">
+    <aside className="h-full bg-gradient-to-b from-red-950/90 via-zinc-950 to-zinc-950">
+      <div className="flex h-screen flex-col p-5">
+
+        {/* Brand */}
         <div className="mb-8">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white font-black text-black">
+
+          <Link
+            href="/dashboard"
+            className="flex items-center gap-3"
+          >
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-yellow-400 font-black text-red-950 shadow-lg shadow-yellow-500/10">
               F
             </div>
 
             <div>
-              <p className="font-bold text-white">
+              <p className="font-black text-white">
                 Fire Barber
               </p>
 
-              <p className="text-xs text-zinc-500">
-                Booking System
+              <p className="text-xs text-red-200/40">
+                Customer Portal
               </p>
             </div>
-          </div>
+          </Link>
+
         </div>
 
-        <nav className="space-y-1">
+        {/* Navigation */}
+        <nav className="space-y-2">
+
           {links.map((link) => {
             const active =
               pathname === link.href ||
-              pathname.startsWith(
-                `${link.href}/`,
-              );
+              pathname.startsWith(`${link.href}/`);
 
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 className={[
-                  'flex items-center rounded-xl px-4 py-3',
-                  'text-sm font-medium transition',
+                  'flex items-center gap-3 rounded-xl px-4 py-3',
+                  'text-sm font-semibold transition',
                   active
-                    ? 'bg-white text-black'
-                    : 'text-zinc-400 hover:bg-zinc-900 hover:text-white',
+                    ? 'bg-yellow-400 text-red-950 shadow-lg shadow-yellow-500/10'
+                    : 'text-zinc-400 hover:bg-red-950 hover:text-yellow-400',
                 ].join(' ')}
               >
-                {link.label}
+                <span className="w-5 text-center text-base">
+                  {link.icon}
+                </span>
+
+                <span>
+                  {link.label}
+                </span>
               </Link>
             );
           })}
+
         </nav>
 
-        <div className="mt-auto border-t border-zinc-800 pt-5">
-          <p className="text-xs text-zinc-600">
+        {/* Footer */}
+        <div className="mt-auto border-t border-red-900/50 pt-5">
+          <p className="text-xs font-semibold text-yellow-500/60">
             Fire Barber
           </p>
 
@@ -101,6 +110,7 @@ export function Sidebar() {
             Professional appointment booking
           </p>
         </div>
+
       </div>
     </aside>
   );

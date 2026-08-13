@@ -1,10 +1,20 @@
 import api from '../lib/api';
-import type { Barber } from '../types/barber';
 
 export const barberService = {
-  async getAll(): Promise<Barber[]> {
-    const response = await api.get<Barber[]>('/barbers');
+  getAll() {
+    return api.get('/barbers');
+  },
 
-    return response.data;
+  getOne(id: string) {
+    return api.get(`/barbers/${id}`);
+  },
+
+  updateStatus(
+    id: string,
+    status: 'AVAILABLE' | 'BUSY' | 'UNAVAILABLE' | 'VACATION',
+  ) {
+    return api.patch(`/barbers/${id}/status`, {
+      status,
+    });
   },
 };

@@ -63,6 +63,7 @@ export interface CreateAppointmentDto {
   barberId: string;
   serviceIds: string[];
   appointmentDate: string;
+  notes?: string;
 }
 
 export interface UpdateAppointmentStatusDto {

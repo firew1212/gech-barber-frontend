@@ -694,3 +694,111 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+:root {
+  --bg-primary: #081120;
+  --bg-secondary: #0e1b31;
+  --bg-card: #12213c;
+
+  --gold: #d4af37;
+  --gold-light: #f4d03f;
+  --gold-dark: #b8860b;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.gold-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--gold-light),
+    var(--gold),
+    var(--gold-dark)
+  );
+}
+
+.gold-button {
+  background: linear-gradient(
+    135deg,
+    var(--gold-light),
+    var(--gold)
+  );
+  color: #081120;
+  font-weight: 700;
+  transition: all .3s ease;
+}
+
+.gold-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(212,175,55,.45);
+}
+
+.blue-card {
+  background: rgba(14, 27, 49, .95);
+  border: 1px solid rgba(212,175,55,.15);
+  transition: all .3s ease;
+}
+
+.blue-card:hover {
+  border-color: rgba(212,175,55,.5);
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(212,175,55,.15);
+}
+
+.gold-icon {
+  background: linear-gradient(
+    135deg,
+    var(--gold-light),
+    var(--gold)
+  );
+  color: #081120;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  left: 50%;
+  top: -350px;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: rgba(212,175,55,.12);
+  filter: blur(120px);
+}
+
+.hero-glow::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -150px;
+  top: 30%;
+  border-radius: 9999px;
+  background: rgba(59,130,246,.08);
+  filter: blur(120px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

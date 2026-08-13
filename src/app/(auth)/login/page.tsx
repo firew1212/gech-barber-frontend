@@ -62,7 +62,15 @@ export default function LoginPage() {
 
       setToken(token);
 
-      router.replace('/dashboard');
+      const role = response.data.user.role;
+
+if (role === 'ADMIN') {
+  router.replace('/admin');
+} else if (role === 'BARBER') {
+  router.replace('dashboard/barber');
+} else {
+  router.replace('/dashboard');
+}
     } catch (error: any) {
       console.error('LOGIN ERROR:', error);
 
