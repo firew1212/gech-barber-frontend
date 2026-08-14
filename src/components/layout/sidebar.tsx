@@ -51,12 +51,12 @@ export function Sidebar() {
             className="flex items-center gap-3"
           >
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-yellow-400 font-black text-red-950 shadow-lg shadow-yellow-500/10">
-              F
+              S
             </div>
 
             <div>
               <p className="font-black text-white">
-                Fire Barber
+                Selam Barber
               </p>
 
               <p className="text-xs text-red-200/40">

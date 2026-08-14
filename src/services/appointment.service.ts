@@ -8,6 +8,7 @@ export interface CreateAppointmentPayload {
 }
 
 export type AppointmentStatus =
+    'PENDING'
   | 'CONFIRMED'
   | 'IN_QUEUE'
   | 'IN_SERVICE'

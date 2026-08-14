@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { authService } from '../../../services/auth.service';
 import { setToken } from '../../../lib/auth';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -90,13 +91,20 @@ if (role === 'ADMIN') {
     <main className="flex min-h-screen items-center justify-center bg-zinc-950 px-4 py-10 text-white">
       <div className="w-full max-w-md">
         {/* Brand */}
-        <div className="mb-8 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-zinc-700 bg-white text-2xl font-black text-black shadow-[0_0_50px_rgba(255,255,255,0.08)]">
-            F
+        
+        
+            <div className="mb-8 text-center">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-zinc-700 bg-white text-2xl font-black text-black shadow-[0_0_50px_rgba(255,255,255,0.08)]">
+            <Link href={"/"}>
+            S
+            </Link>
           </div>
+        
+
+          
 
           <p className="mt-5 text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
-            Fire Barber
+            Selam Barber
           </p>
 
           <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -225,11 +233,11 @@ if (role === 'ADMIN') {
 
         {/* Footer */}
         <div className="mt-6 text-center">
-          <p className="text-xs text-zinc-600">
-            Fire Barber
+          <p className="text-xs text-WHITE-600">
+            SELAM Barber
           </p>
 
-          <p className="mt-1 text-[11px] text-zinc-700">
+          <p className="mt-1 text-[11px] text-PINK-700">
             Professional barber appointment booking
           </p>
         </div>

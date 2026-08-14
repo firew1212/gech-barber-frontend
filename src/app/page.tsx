@@ -7,28 +7,28 @@ const services = [
     description:
       'Sharp, clean and professional cuts tailored to your style.',
     price: 'From ETB 100',
-    image: '/images/haircut.jpg',
+    image: '/image/cut.jpg',
   },
   {
     name: 'Beard Trim',
     description:
       'Precise beard shaping and finishing for a clean look.',
     price: 'From ETB 80',
-    image: '/images/beard-trim.jpg',
+    image: '/image/trim.jpg',
   },
   {
     name: 'Hair Wash',
     description:
       'A refreshing wash that leaves your hair clean and ready.',
     price: 'From ETB 70',
-    image: '/images/hair-wash.jpg',
+    image: '/image/wash.jpg',
   },
   {
     name: 'Hair Coloring',
     description:
       'Professional coloring designed to give you a fresh new look.',
     price: 'From ETB 200',
-    image: '/images/hair-coloring.jpg',
+    image: '/image/color.jpg',
   },
 ];
 
@@ -62,7 +62,7 @@ export default function HomePage() {
       <section className="relative min-h-screen overflow-hidden">
         {/* Background image */}
         <Image
-          src="/images/barber-hero.jpg"
+          src="/image/hero.jpg"
           alt="Fire Barber"
           fill
           priority
@@ -90,12 +90,12 @@ export default function HomePage() {
               className="group flex items-center gap-3"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-amber-300/40 bg-amber-400 text-xl font-black text-[#19091f] shadow-[0_0_30px_rgba(251,191,36,0.2)] transition duration-300 group-hover:rotate-6 group-hover:scale-110">
-                F
+                S
               </div>
 
               <div>
                 <p className="font-black tracking-wide text-white">
-                  Fire Barber
+                  ሰላም Barber-Shop
                 </p>
 
                 <p className="text-[10px] uppercase tracking-[0.25em] text-amber-300/70">
@@ -155,24 +155,19 @@ export default function HomePage() {
               <span className="h-2 w-2 animate-pulse rounded-full bg-amber-400 shadow-[0_0_15px_rgba(251,191,36,0.9)]" />
 
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-amber-300">
-                Premium Barber Experience
+                5+ year Barber Experience
               </span>
             </div>
 
             {/* Heading */}
-            <h1 className="mt-7 animate-[fadeInUp_0.9s_ease-out] text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
-              Your style.
+            <h1 className="mt-7 animate-[fadeInUp_0.9s_ease-out] text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl md:text-5xl lg:text-6xl">
+              መለኪያችን
               <span className="block bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 bg-clip-text text-transparent">
-                Our craft.
+                የርስዎ ማማር ነው.
               </span>
             </h1>
 
-            {/* Description */}
-            <p className="mt-7 max-w-xl animate-[fadeInUp_1.1s_ease-out] text-base leading-7 text-white/65 sm:text-lg">
-              Experience professional barbering with easy online
-              booking. Choose your barber, select your services and
-              reserve your perfect time.
-            </p>
+            
 
             {/* Buttons */}
             <div className="mt-9 flex flex-col gap-3 animate-[fadeInUp_1.3s_ease-out] sm:flex-row">
@@ -229,11 +224,11 @@ export default function HomePage() {
 
         {/* Scroll indicator */}
         <a
-          href="#services"
+          href="#about"
           className="absolute bottom-8 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/40 transition hover:text-amber-300 sm:flex"
         >
           <span className="text-[10px] uppercase tracking-[0.3em]">
-            Discover
+           firew mulat
           </span>
 
           <span className="animate-bounce text-lg">
@@ -259,7 +254,7 @@ export default function HomePage() {
             </p>
 
             <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
-              Look sharp.
+              Choose Us.
               <span className="block text-amber-400">
                 Feel confident.
               </span>
@@ -344,22 +339,17 @@ export default function HomePage() {
           {/* Text */}
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400">
-              The Fire Barber Difference
+              The SELAM Barber Difference
             </p>
 
-            <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">
-              More than a haircut.
+            <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">
+              We strongly care about 
               <span className="block text-amber-400">
-                It's your signature.
+                your safety .
               </span>
             </h2>
 
-            <p className="mt-6 max-w-xl text-sm leading-7 text-white/50 sm:text-base">
-              We believe a great barber experience should be simple,
-              comfortable and personal. Choose the barber you trust,
-              select the services you need and arrive ready for your
-              appointment.
-            </p>
+      
 
             <Link
               href="/book"
@@ -369,44 +359,6 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Feature cards */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              {
-                title: 'Personal Barber',
-                text: 'Choose the barber you prefer.',
-              },
-              {
-                title: 'Easy Booking',
-                text: 'Reserve your time in a few clicks.',
-              },
-              {
-                title: 'Digital Queue',
-                text: 'Track your appointment progress.',
-              },
-              {
-                title: 'Premium Service',
-                text: 'Professional grooming every time.',
-              },
-            ].map((item, index) => (
-              <div
-                key={item.title}
-                className="group rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition duration-500 hover:-translate-y-2 hover:border-amber-400/25 hover:bg-amber-400/[0.04]"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-amber-300 to-amber-500 font-black text-[#1b0922] shadow-lg transition duration-500 group-hover:rotate-6 group-hover:scale-110">
-                  {index + 1}
-                </div>
-
-                <h3 className="mt-5 font-bold">
-                  {item.title}
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-white/40">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -509,12 +461,12 @@ export default function HomePage() {
           <div>
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-400 font-black text-[#19091f]">
-                F
+                S
               </div>
 
               <div>
                 <p className="font-bold">
-                  Fire Barber
+                  Selam Barber
                 </p>
 
                 <p className="text-[10px] uppercase tracking-[0.2em] text-white/30">
@@ -555,7 +507,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-xs text-white/25">
-            © {new Date().getFullYear()} Fire Barber
+            © {new Date().getFullYear()} Firew mulat
           </p>
         </div>
       </footer>

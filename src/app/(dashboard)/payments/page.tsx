@@ -177,7 +177,7 @@ export default function PaymentsPage() {
         {/* Header */}
         <div className="mb-8">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
-            Fire Barber
+            Selam Barber
           </p>
 
           <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">

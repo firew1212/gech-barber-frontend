@@ -40,7 +40,7 @@ export default function DashboardPage() {
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-amber-500">
-                Fire Barber
+                Selam Barber
               </p>
 
               <h1 className="mt-2 text-3xl font-black tracking-tight text-white sm:text-4xl">
@@ -48,8 +48,7 @@ export default function DashboardPage() {
               </h1>
 
               <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-400">
-                Manage your appointments, follow your queue position,
-                and book your next visit.
+                Manage your appointments.
               </p>
             </div>
 
@@ -71,7 +70,7 @@ export default function DashboardPage() {
             </p>
 
             <h2 className="mt-1 text-lg font-bold text-white">
-              Your Fire Barber activity
+              Your Selam Barber activity
             </h2>
           </div>
 

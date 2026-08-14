@@ -21,7 +21,7 @@ export default function BookAppointmentPage() {
 
   const [selectedBarber, setSelectedBarber] = useState('');
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
-  const [appointmentDate, setAppointmentDate] = useState('');
+  const [appointmentTime, setAppointmentTime] = useState('');
 
   const [loading, setLoading] = useState(true);
   const [booking, setBooking] = useState(false);
@@ -29,6 +29,22 @@ export default function BookAppointmentPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
+
+  function buildAppointmentDate(time: string) {
+  const today = new Date();
+
+  const [hours, minutes] = time.split(':');
+
+  const appointment = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate(),
+    Number(hours),
+    Number(minutes),
+  );
+
+  return appointment.toISOString();
+}
   /**
    * Normalize API response.
    *
@@ -162,21 +178,20 @@ export default function BookAppointmentPage() {
       return;
     }
 
-    if (!appointmentDate) {
-      setError(
-        'Please choose your appointment date and time.',
-      );
-      return;
-    }
+    if (!appointmentTime) {
+  setError('Please choose appointment time.');
+  return;
+}
 
     try {
       setBooking(true);
 
       const bookingData: CreateAppointmentDto = {
-        barberId: selectedBarber,
-        serviceIds: selectedServices,
-        appointmentDate,
-      };
+  barberId: selectedBarber,
+  serviceIds: selectedServices,
+  appointmentDate:
+    buildAppointmentDate(appointmentTime),
+};
 
       await appointmentService.create(bookingData);
 
@@ -186,7 +201,7 @@ export default function BookAppointmentPage() {
 
       setSelectedBarber('');
       setSelectedServices([]);
-      setAppointmentDate('');
+      setAppointmentTime('');
 
       setTimeout(() => {
         router.push('/queue');
@@ -235,11 +250,11 @@ export default function BookAppointmentPage() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-yellow-500">
-              Fire Barber
+              Selam Barber
             </p>
 
             <h1 className="mt-2 text-3xl font-black tracking-tight text-white sm:text-4xl">
-              Book an Appointment
+              Book now
             </h1>
 
             <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-400">
@@ -448,20 +463,20 @@ export default function BookAppointmentPage() {
               </p>
 
               <h2 className="mt-2 text-xl font-bold text-white">
-                Choose date and time
+                choose the time
               </h2>
 
               <input
-                type="datetime-local"
-                value={appointmentDate}
-                onChange={(event) =>
-                  setAppointmentDate(
-                    event.target.value,
-                  )
-                }
-                required
-                className="mt-5 w-full rounded-2xl border border-zinc-800 bg-black/60 px-4 py-4 text-sm text-white outline-none transition focus:border-yellow-400 focus:ring-4 focus:ring-yellow-400/10"
-              />
+  type="time"
+  value={appointmentTime}
+  onChange={(event) =>
+    setAppointmentTime(
+      event.target.value,
+    )
+  }
+  required
+  className="mt-5 w-full rounded-2xl border border-zinc-800 bg-black/60 px-4 py-4 text-sm text-white outline-none transition focus:border-yellow-400 focus:ring-4 focus:ring-yellow-400/10"
+/>
 
               <p className="mt-3 text-xs leading-5 text-zinc-600">
                 Your barber's availability will be
@@ -545,11 +560,7 @@ export default function BookAppointmentPage() {
                   </p>
 
                   <p className="mt-1 text-sm text-zinc-300">
-                    {appointmentDate
-                      ? new Date(
-                          appointmentDate,
-                        ).toLocaleString()
-                      : 'Not selected'}
+                    {appointmentTime || 'Not selected'}
                   </p>
                 </div>
 
@@ -575,7 +586,7 @@ export default function BookAppointmentPage() {
                   booking ||
                   !selectedBarber ||
                   selectedServices.length === 0 ||
-                  !appointmentDate
+                  !appointmentTime
                 }
                 className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-400 px-5 py-4 font-black text-black shadow-lg shadow-yellow-900/20 transition hover:-translate-y-0.5 hover:bg-yellow-300 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0"
               >

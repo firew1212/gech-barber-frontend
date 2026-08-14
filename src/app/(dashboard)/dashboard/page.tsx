@@ -133,17 +133,13 @@ export default function DashboardPage() {
 
           <div className="relative">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-400">
-              Fire Barber
+              Selam Barber
             </p>
 
             <h1 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">
-              Customer Dashboard
+              Dashboard
             </h1>
-
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-red-100/70">
-              Manage your appointments, follow your queue,
-              and keep track of your barber experience.
-            </p>
+         
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Link

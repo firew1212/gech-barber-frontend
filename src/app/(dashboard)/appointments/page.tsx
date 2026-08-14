@@ -155,7 +155,7 @@ export default function AppointmentsPage() {
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-yellow-500">
-              Fire Barber
+              Selam Barber
             </p>
 
             <h1 className="mt-2 text-3xl font-black tracking-tight text-white sm:text-4xl">

@@ -325,7 +325,7 @@ export default function BarberDashboardPage() {
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-500">
-              Fire Barber
+              Selam Barber
             </p>
 
             <h1 className="mt-2 text-3xl font-black text-white sm:text-4xl">

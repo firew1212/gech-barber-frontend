@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-
+import Link from 'next/link';
 import { authService } from '../../../services/auth.service';
 
 export default function RegisterPage() {
@@ -80,11 +80,11 @@ export default function RegisterPage() {
         <div className="mb-8 text-center">
 
           <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-white text-3xl font-black text-black shadow-2xl">
-            F
+            <Link href={"/"}>S</Link>
           </div>
 
           <h1 className="text-4xl font-bold">
-            Fire Barber
+            Selam Barber
           </h1>
 
           <p className="mt-3 text-zinc-400">

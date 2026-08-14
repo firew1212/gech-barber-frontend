@@ -93,7 +93,7 @@ export default function ProfilePage() {
 
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-500">
-            Fire Barber
+            Selam Barber
           </p>
 
           <h1 className="mt-2 text-3xl font-black text-white">
@@ -101,7 +101,7 @@ export default function ProfilePage() {
           </h1>
 
           <p className="mt-2 text-sm text-zinc-500">
-            Your Fire Barber account information.
+            Your selam Barber account information.
           </p>
         </div>
 
